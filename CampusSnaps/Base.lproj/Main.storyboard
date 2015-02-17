@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="g4T-7W-tnu">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="FfU-jv-ZKb">
+            <objects>
+                <tabBarController id="g4T-7W-tnu" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Noz-34-5bt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="9c4-0b-7sF"/>
+                        <segue destination="BjQ-Ub-ii5" kind="relationship" relationship="viewControllers" id="AaC-Pg-VR9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ueC-Ph-sdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-508.5" y="467.25"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="CampusSnaps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +36,240 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLI-pU-n60">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Snap">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xo8-Vt-rvI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3h-xA-Slc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Switch">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flipCamera:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uGA-qx-rFg"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="tLI-pU-n60" secondAttribute="bottom" constant="101" id="FeV-Ag-zCp"/>
+                            <constraint firstItem="tLI-pU-n60" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="177" id="a6n-Gc-Txx"/>
+                            <constraint firstItem="b3h-xA-Slc" firstAttribute="leading" secondItem="tLI-pU-n60" secondAttribute="leading" id="hXb-Ue-eYL"/>
+                            <constraint firstItem="b3h-xA-Slc" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="97" id="lyd-rl-xR8"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="tLI-pU-n60"/>
+                                <exclude reference="b3h-xA-Slc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="FeV-Ag-zCp"/>
+                                <exclude reference="hXb-Ue-eYL"/>
+                                <exclude reference="lyd-rl-xR8"/>
+                                <exclude reference="a6n-Gc-Txx"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="tLI-pU-n60"/>
+                                <include reference="b3h-xA-Slc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="FeV-Ag-zCp"/>
+                                <include reference="hXb-Ue-eYL"/>
+                                <include reference="lyd-rl-xR8"/>
+                                <include reference="a6n-Gc-Txx"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" image="Image" id="emS-8h-KTP">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1993.5" y="-62.25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6C2-lH-NAf">
+            <objects>
+                <navigationController id="BjQ-Ub-ii5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="oKP-y2-aaQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SUO-VF-d68">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Mc0-iG-iY4" kind="relationship" relationship="rootViewController" id="nOR-5E-jch"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MaH-9G-Vrl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="946.5" y="807.75"/>
+        </scene>
+        <!--Duke Stream-->
+        <scene sceneID="Qv7-az-xoS">
+            <objects>
+                <viewController id="Mc0-iG-iY4" customClass="StreamViewController" customModule="CampusSnaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tl0-OJ-mHS"/>
+                        <viewControllerLayoutGuide type="bottom" id="3eA-i9-g0B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tUq-wM-Bnt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkY-SL-QMG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="get:" destination="Mc0-iG-iY4" eventType="touchUpInside" id="0Kf-72-MnJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pkY-SL-QMG" firstAttribute="leading" secondItem="tUq-wM-Bnt" secondAttribute="leading" constant="188" id="Pp0-vX-rPP"/>
+                            <constraint firstItem="3eA-i9-g0B" firstAttribute="top" secondItem="pkY-SL-QMG" secondAttribute="bottom" constant="325" id="ZwB-Tf-f2Y"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="pkY-SL-QMG"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ZwB-Tf-f2Y"/>
+                                <exclude reference="Pp0-vX-rPP"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="pkY-SL-QMG"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ZwB-Tf-f2Y"/>
+                                <include reference="Pp0-vX-rPP"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Duke Stream" id="W69-Le-4UU"/>
+                    <navigationItem key="navigationItem" id="V2h-PT-V6H"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y3M-BM-POZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="807.75"/>
+        </scene>
+        <!--Preview View Controller-->
+        <scene sceneID="Apd-aA-Wgo">
+            <objects>
+                <viewController storyboardIdentifier="SendNav" id="aoa-JE-Ej8" customClass="PreviewViewController" customModule="CampusSnaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hGi-Z9-JaL"/>
+                        <viewControllerLayoutGuide type="bottom" id="nhp-vF-IVf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qos-CC-Afu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lm9-SS-nY1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWv-X0-26H">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendPhoto:" destination="aoa-JE-Ej8" eventType="touchUpInside" id="VAO-Xk-8yZ"/>
+                                    <segue destination="g4T-7W-tnu" kind="popoverPresentation" popoverAnchorView="HWv-X0-26H" id="fEA-fQ-LjB">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNo-33-Poc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="g4T-7W-tnu" kind="popoverPresentation" popoverAnchorView="qNo-33-Poc" id="KMD-K1-CrO">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lm9-SS-nY1" firstAttribute="leading" secondItem="qos-CC-Afu" secondAttribute="leadingMargin" constant="-13" id="5Bn-RM-14X"/>
+                            <constraint firstItem="qNo-33-Poc" firstAttribute="leading" secondItem="qos-CC-Afu" secondAttribute="leadingMargin" constant="16" id="D3N-5m-yb0"/>
+                            <constraint firstItem="qNo-33-Poc" firstAttribute="top" secondItem="hGi-Z9-JaL" secondAttribute="bottom" constant="8" symbolic="YES" id="GzY-5Q-kee"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HWv-X0-26H" secondAttribute="trailing" constant="30" id="HHC-6y-zit"/>
+                            <constraint firstItem="HWv-X0-26H" firstAttribute="baseline" secondItem="qNo-33-Poc" secondAttribute="baseline" id="LwE-lo-9Dv"/>
+                            <constraint firstItem="lm9-SS-nY1" firstAttribute="top" secondItem="hGi-Z9-JaL" secondAttribute="bottom" constant="10" id="VGX-Ly-3Ia"/>
+                            <constraint firstItem="lm9-SS-nY1" firstAttribute="centerX" secondItem="qos-CC-Afu" secondAttribute="centerX" id="Vxp-Dm-6Mf"/>
+                            <constraint firstItem="nhp-vF-IVf" firstAttribute="top" secondItem="lm9-SS-nY1" secondAttribute="bottom" constant="8" symbolic="YES" id="isP-Is-xhK"/>
+                            <constraint firstItem="lm9-SS-nY1" firstAttribute="top" secondItem="qos-CC-Afu" secondAttribute="top" id="nkU-Dk-gMb"/>
+                            <constraint firstItem="lm9-SS-nY1" firstAttribute="bottom" secondItem="nhp-vF-IVf" secondAttribute="top" id="vZ7-Ci-hgw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="HWv-X0-26H"/>
+                                <exclude reference="qNo-33-Poc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5Bn-RM-14X"/>
+                                <exclude reference="Vxp-Dm-6Mf"/>
+                                <exclude reference="nkU-Dk-gMb"/>
+                                <exclude reference="vZ7-Ci-hgw"/>
+                                <exclude reference="HHC-6y-zit"/>
+                                <exclude reference="LwE-lo-9Dv"/>
+                                <exclude reference="D3N-5m-yb0"/>
+                                <exclude reference="GzY-5Q-kee"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="HWv-X0-26H"/>
+                                <include reference="qNo-33-Poc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5Bn-RM-14X"/>
+                                <exclude reference="VGX-Ly-3Ia"/>
+                                <include reference="Vxp-Dm-6Mf"/>
+                                <include reference="nkU-Dk-gMb"/>
+                                <include reference="vZ7-Ci-hgw"/>
+                                <exclude reference="isP-Is-xhK"/>
+                                <include reference="HHC-6y-zit"/>
+                                <include reference="LwE-lo-9Dv"/>
+                                <include reference="D3N-5m-yb0"/>
+                                <include reference="GzY-5Q-kee"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="G9a-sI-XBK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="g79-xV-RNB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="gH5-Ge-xq0"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imagePreview" destination="lm9-SS-nY1" id="q7T-1o-bmT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Pg-lP-2BS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865.5" y="-293.25"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="64" height="64"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fEA-fQ-LjB"/>
+    </inferredMetricsTieBreakers>
 </document>
